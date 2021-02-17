@@ -17,9 +17,9 @@ public class Runner implements CommandLineRunner {
         for (int i=0; i<10; i++) {
             System.out.println("Sending message...");
 
-            CustomMessage message = new CustomMessage("Hello!", 1, true);
-            rabbitTemplate.convertAndSend(message);
-    //        rabbitTemplate.convertAndSend("Hello!");
+//            CustomMessage message = new CustomMessage("Hello!", 1, true);
+//            rabbitTemplate.convertAndSend(message);
+            rabbitTemplate.convertAndSend("Hello!");
 
 
             System.out.println("send finished");

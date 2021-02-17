@@ -13,7 +13,7 @@ import java.util.Properties;
 public class Consumer {
     private static String TOPIC_NAME = "test";
     private static String GROUP_ID = "testgroup";
-    private static String BOOTSTRAP_SERVERS = "172.22.87.232:29092";
+    private static String BOOTSTRAP_SERVERS = "172.22.84.198:29092";
 
     public static void main () {
         Properties configs = new Properties();
@@ -23,7 +23,7 @@ public class Consumer {
         configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(configs);
-        consumer.subscribe(Arrays.asList(TOPIC_NAME)); // ?
+        consumer.subscribe(Arrays.asList(TOPIC_NAME)); // 컨슈머가 읽어올 토픽을 지정
 
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
